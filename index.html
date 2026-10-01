@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Haunted Harvest - a CSS-only Halloween animated environment.">
+  <title>The Haunted Harvest 🎃</title>
+  <link rel="stylesheet" href="haunted-harvest.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <p class="eyebrow">🎃 Halloween Environment Challenge</p>
+    <h1>The Haunted Harvest</h1>
+    <p class="tagline">Three spooky CSS-only scenes. No JavaScript. Just HTML, CSS, and a little moonlight.</p>
+
+    <nav class="scene-nav" aria-label="Choose a Halloween scene">
+      <a href="#town" class="scene-link">🏚️ Town Square</a>
+      <a href="#graveyard" class="scene-link">🪦 Graveyard</a>
+      <a href="#cove" class="scene-link">🌊 Cursed Cove</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="scenes">
+
+    <!-- SCENE 1 -->
+    <section id="town" class="scene town-scene" aria-labelledby="town-title">
+      <div class="scene-heading">
+        <p class="scene-number">CHAPTER I</p>
+        <h2 id="town-title">Haunted Town Square</h2>
+        <p>Trick-or-treaters cross the square while bats circle the moon and a hearse rolls through the fog.</p>
+      </div>
+
+      <div class="sky">
+        <div class="moon" aria-hidden="true">🌕</div>
+        <div class="cloud cloud-one" aria-hidden="true">☁️</div>
+        <div class="cloud cloud-two" aria-hidden="true">☁️</div>
+
+        <div class="bat bat-one" aria-hidden="true">🦇</div>
+        <div class="bat bat-two" aria-hidden="true">🦇</div>
+        <div class="bat bat-three" aria-hidden="true">🦇</div>
+
+        <div class="witch" aria-hidden="true">🧙‍♀️</div>
+      </div>
+
+      <div class="town-buildings" aria-hidden="true">
+        <div class="building building-left">
+          <span>🏚️</span>
+          <span class="window">▣</span>
+          <span class="window">▣</span>
+        </div>
+        <div class="building building-center">
+          <span>HAUNTED</span>
+          <strong>HALLOWEEN SHOP</strong>
+          <span>🎃 🎃 🎃</span>
+        </div>
+        <div class="building building-right">
+          <span>🏠</span>
+          <span class="window">▣</span>
+          <span class="window">▣</span>
+        </div>
+      </div>
+
+      <div class="street">
+        <div class="lamp lamp-one">🕯️</div>
+        <div class="lamp lamp-two">🕯️</div>
+
+        <div class="story-group" aria-label="Two people telling ghost stories">
+          <span>🧛</span>
+          <span>🧟</span>
+          <small>ghost stories...</small>
+        </div>
+
+        <div class="cat cat-one" aria-hidden="true">🐈‍⬛</div>
+
+        <div class="trick-treater person-one" aria-label="Trick-or-treater walking with candy">
+          <span>🧛</span><b>🍬</b>
+        </div>
+        <div class="trick-treater person-two" aria-label="Trick-or-treater walking with candy">
+          <span>👻</span><b>🍭</b>
+        </div>
+        <div class="trick-treater person-three" aria-label="Trick-or-treater walking with candy">
+          <span>🧙</span><b>🍫</b>
+        </div>
+
+        <div class="hearse" aria-label="Moving Halloween hearse">
+          <span class="hearse-body">⚰️</span>
+          <span class="wheel wheel-one">⚫</span>
+          <span class="wheel wheel-two">⚫</span>
+        </div>
+
+        <div class="fog fog-one" aria-hidden="true"></div>
+        <div class="fog fog-two" aria-hidden="true"></div>
+      </div>
+
+      <div class="pumpkins" aria-hidden="true">
+        <span class="pumpkin pumpkin-glow">🎃</span>
+        <span class="pumpkin pumpkin-glow">🎃</span>
+        <span class="pumpkin pumpkin-glow">🎃</span>
+        <span class="pumpkin pumpkin-glow">🎃</span>
+      </div>
+
+      <div class="candy-rain" aria-hidden="true">
+        <span>🍬</span><span>🍭</span><span>🍫</span><span>🍬</span><span>🍭</span>
+      </div>
+    </section>
+
+    <!-- SCENE 2 -->
+    <section id="graveyard" class="scene graveyard-scene" aria-labelledby="graveyard-title">
+      <div class="scene-heading">
+        <p class="scene-number">CHAPTER II</p>
+        <h2 id="graveyard-title">Midnight Graveyard Stroll</h2>
+        <p>A quiet path, drifting mist, a curious black cat, and a cyclist disappearing into the night.</p>
+      </div>
+
+      <div class="graveyard-sky">
+        <div class="big-moon" aria-hidden="true">🌕</div>
+        <div class="grave-cloud cloud-three" aria-hidden="true">☁️</div>
+        <div class="grave-cloud cloud-four" aria-hidden="true">☁️</div>
+        <div class="owl owl-one" aria-hidden="true">🦉</div>
+        <div class="owl owl-two" aria-hidden="true">🦉</div>
+      </div>
+
+      <div class="graveyard-ground">
+        <div class="tree tree-left" aria-hidden="true">🌳</div>
+        <div class="tree tree-right" aria-hidden="true">🌳</div>
+
+        <div class="grave grave-a" aria-hidden="true">RIP</div>
+        <div class="grave grave-b" aria-hidden="true">BOO</div>
+        <div class="grave grave-c" aria-hidden="true">RIP</div>
+
+        <div class="walking-couple" aria-label="Two people walking together">
+          <span>🧛‍♂️</span><span>🧛‍♀️</span>
+        </div>
+
+        <div class="black-cat" aria-label="Black cat walking">🐈‍⬛</div>
+        <div class="ghost-orb orb-one" aria-hidden="true">👻</div>
+        <div class="ghost-orb orb-two" aria-hidden="true">👻</div>
+
+        <div class="cyclist" aria-label="Cyclist passing in the distance">🚴</div>
+        <div class="mist mist-one" aria-hidden="true"></div>
+        <div class="mist mist-two" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- SCENE 3 -->
+    <section id="cove" class="scene cove-scene" aria-labelledby="cove-title">
+      <div class="scene-heading">
+        <p class="scene-number">CHAPTER III</p>
+        <h2 id="cove-title">Cursed Beach Cove</h2>
+        <p>Skeleton pirates warm themselves by a bonfire while a ghost ship crosses the sunset horizon.</p>
+      </div>
+
+      <div class="sunset-sky">
+        <div class="sun" aria-hidden="true">🌅</div>
+        <div class="cove-cloud cove-cloud-one" aria-hidden="true">☁️</div>
+        <div class="cove-cloud cove-cloud-two" aria-hidden="true">☁️</div>
+
+        <div class="ghost-ship" aria-label="Ghost ship moving across the horizon">⛵👻</div>
+        <div class="flying-bats" aria-hidden="true">🦇 🦇 🦇</div>
+      </div>
+
+      <div class="ocean" aria-hidden="true">
+        <div class="wave wave-one">〰️〰️〰️〰️〰️</div>
+        <div class="wave wave-two">〰️〰️〰️〰️〰️</div>
+        <div class="wave wave-three">〰️〰️〰️〰️〰️</div>
+      </div>
+
+      <div class="beach">
+        <div class="bonfire" aria-label="Animated bonfire">🔥</div>
+        <div class="pirates" aria-label="Skeleton pirates beside a bonfire">☠️ 🏴‍☠️ ☠️</div>
+        <div class="crab" aria-label="Crab walking across the sand">🦀</div>
+        <div class="lantern lantern-one" aria-hidden="true">🎃</div>
+        <div class="lantern lantern-two" aria-hidden="true">🏮</div>
+        <div class="lantern lantern-three" aria-hidden="true">🎃</div>
+        <div class="sand-stars" aria-hidden="true">✦　✧　✦　✧　✦</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>🎃 Built with semantic HTML5 + CSS3 only · No JavaScript 🎃</p>
+    <p>Use the scene buttons above to navigate between chapters.</p>
+  </footer>
+</body>
+</html>

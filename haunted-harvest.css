@@ -1,0 +1,913 @@
+/* =========================================================
+   THE HAUNTED HARVEST
+   100% HTML5 + CSS3 — no JavaScript
+   ========================================================= */
+
+/* ---------- Theme variables ---------- */
+:root {
+  --pumpkin: #ff7518;
+  --candy-purple: #5a189a;
+  --spider-black: #1a1423;
+  --slime-green: #8ac926;
+  --ghost-white: #f6f2f8;
+  --candle-glow: #ffd60a;
+
+  --night: #090614;
+  --night-two: #160d2c;
+  --fog: rgba(246, 242, 248, 0.28);
+  --card: rgba(26, 20, 35, 0.88);
+  --border: rgba(246, 242, 248, 0.25);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+
+  --radius: 1rem;
+}
+
+/* ---------- Reset / base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, #32145b 0, var(--night) 48%, #05030a 100%);
+  color: var(--ghost-white);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  background: var(--candle-glow);
+  color: var(--spider-black);
+  font-weight: 800;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--candle-glow);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--pumpkin);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  text-shadow: 0 0 18px rgba(255, 117, 24, 0.55);
+}
+
+.tagline {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  color: #e5ddec;
+}
+
+.scene-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.scene-link {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ghost-white);
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.scene-link:hover,
+.scene-link:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--pumpkin);
+  background: var(--candy-purple);
+}
+
+.scene-link:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--candle-glow);
+  outline-offset: 3px;
+}
+
+/* ---------- CSS-only scene switching ---------- */
+.scene {
+  display: none;
+}
+
+.scenes:not(:has(.scene:target)) .scene:first-child {
+  display: block;
+}
+
+.scene:target {
+  display: block;
+}
+
+/* ---------- Shared scene layout ---------- */
+.scene {
+  position: relative;
+  width: min(1200px, 94%);
+  min-height: 650px;
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  isolation: isolate;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.scene-heading {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 30;
+  width: min(460px, calc(100% - 2.4rem));
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: rgba(10, 6, 20, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.scene-heading h2 {
+  margin-bottom: 0.3rem;
+  color: var(--candle-glow);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.scene-heading p:last-child {
+  margin-bottom: 0;
+}
+
+.scene-number {
+  margin-bottom: 0.25rem;
+  color: var(--pumpkin);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   SCENE 1 — HAUNTED TOWN
+   ========================================================= */
+
+.town-scene {
+  background: linear-gradient(#0a0620 0%, #211044 45%, #4c1d4f 100%);
+}
+
+.sky {
+  position: absolute;
+  inset: 0 0 42%;
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  font-size: clamp(4rem, 11vw, 7rem);
+  filter: drop-shadow(0 0 22px rgba(255, 214, 10, 0.7));
+}
+
+.cloud {
+  position: absolute;
+  opacity: 0.55;
+  font-size: 2.5rem;
+  animation: cloud-drift 18s linear infinite;
+}
+
+.cloud-one {
+  top: 22%;
+  left: -10%;
+}
+
+.cloud-two {
+  top: 40%;
+  left: -35%;
+  animation-delay: -9s;
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-15vw); }
+  to { transform: translateX(125vw); }
+}
+
+.bat {
+  position: absolute;
+  z-index: 5;
+  font-size: 1.5rem;
+  animation: bat-flight 8s linear infinite;
+}
+
+.bat-one { top: 24%; left: -5%; }
+.bat-two { top: 12%; left: -20%; animation-delay: -3s; }
+.bat-three { top: 34%; left: -30%; animation-delay: -6s; }
+
+@keyframes bat-flight {
+  0% { transform: translate(-10vw, 10px) scale(0.8) rotate(-8deg); }
+  35% { transform: translate(35vw, -35px) scale(1) rotate(8deg); }
+  70% { transform: translate(75vw, 20px) scale(0.9) rotate(-5deg); }
+  100% { transform: translate(125vw, -20px) scale(0.75); }
+}
+
+.witch {
+  position: absolute;
+  top: 10%;
+  left: -12%;
+  z-index: 6;
+  font-size: 2.8rem;
+  animation: witch-fly 15s ease-in-out infinite;
+}
+
+@keyframes witch-fly {
+  0% { transform: translateX(0) translateY(25px) rotate(-5deg); }
+  50% { transform: translateX(65vw) translateY(-35px) rotate(5deg); }
+  100% { transform: translateX(125vw) translateY(15px) rotate(-4deg); }
+}
+
+.town-buildings {
+  position: absolute;
+  bottom: 28%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 0 3%;
+}
+
+.building {
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  padding: 0.75rem;
+  border: 3px solid #0d0817;
+  border-bottom: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #291a31;
+  box-shadow: inset 0 0 0 2px #543660;
+  text-align: center;
+}
+
+.building-left,
+.building-right {
+  width: 24%;
+  font-size: 2rem;
+}
+
+.building-center {
+  width: 40%;
+  min-height: 185px;
+  color: var(--pumpkin);
+  font-weight: 900;
+}
+
+.building-center strong {
+  color: var(--candle-glow);
+}
+
+.window {
+  color: var(--candle-glow);
+  animation: window-flicker 2.5s infinite alternate;
+}
+
+@keyframes window-flicker {
+  from { opacity: 0.45; }
+  to { opacity: 1; filter: drop-shadow(0 0 8px var(--candle-glow)); }
+}
+
+.street {
+  position: absolute;
+  inset: auto 0 0;
+  height: 31%;
+  z-index: 4;
+  background:
+    linear-gradient(#3c3541 0 7%, #18151d 7% 100%);
+  border-top: 5px solid #111;
+}
+
+.street::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 50px,
+    #c7a97b 50px 90px,
+    transparent 90px 140px
+  );
+  opacity: 0.7;
+}
+
+.lamp {
+  position: absolute;
+  top: -38px;
+  z-index: 8;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px var(--candle-glow));
+  animation: flicker 2.5s ease-in-out infinite;
+}
+
+.lamp-one { left: 12%; }
+.lamp-two { right: 12%; animation-delay: -1s; }
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px var(--candle-glow));
+  }
+  50% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px var(--candle-glow));
+  }
+}
+
+.story-group {
+  position: absolute;
+  bottom: 28%;
+  left: 39%;
+  z-index: 10;
+  display: flex;
+  gap: 0.25rem;
+  align-items: end;
+  font-size: 2rem;
+}
+
+.story-group small {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  width: 150px;
+  color: #ddd;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.trick-treater {
+  position: absolute;
+  bottom: 26%;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 2.2rem;
+  animation: walk-across 11s linear infinite;
+}
+
+.person-one { left: -10%; animation-delay: -1s; }
+.person-two { left: -25%; animation-delay: -5s; }
+.person-three { left: -40%; animation-delay: -8s; }
+
+.trick-treater b {
+  font-size: 1rem;
+  animation: bag-bounce 500ms ease-in-out infinite alternate;
+}
+
+@keyframes walk-across {
+  0% { transform: translateX(-10vw) translateY(0); }
+  20% { transform: translateX(20vw) translateY(-3px); }
+  40% { transform: translateX(45vw) translateY(0); }
+  60% { transform: translateX(70vw) translateY(-3px); }
+  80% { transform: translateX(95vw) translateY(0); }
+  100% { transform: translateX(125vw) translateY(-2px); }
+}
+
+@keyframes bag-bounce {
+  from { transform: rotate(-7deg) translateY(0); }
+  to { transform: rotate(7deg) translateY(3px); }
+}
+
+.cat {
+  position: absolute;
+  right: 27%;
+  bottom: 18%;
+  z-index: 11;
+  font-size: 2rem;
+  animation: cat-trot 8s linear infinite;
+}
+
+@keyframes cat-trot {
+  from { transform: translateX(10vw); }
+  to { transform: translateX(-65vw); }
+}
+
+.hearse {
+  position: absolute;
+  right: -20%;
+  bottom: 14%;
+  z-index: 13;
+  font-size: 2.8rem;
+  animation: vehicle-drive 14s linear infinite;
+}
+
+.hearse-body {
+  display: inline-block;
+  transform: scaleX(1.5);
+}
+
+.wheel {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.9rem;
+  animation: wheel-spin 500ms linear infinite;
+}
+
+@keyframes vehicle-drive {
+  from { transform: translateX(0); }
+  to { transform: translateX(-135vw); }
+}
+
+@keyframes wheel-spin {
+  to { transform: rotate(360deg); }
+}
+
+.fog,
+.mist {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--fog);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.fog {
+  bottom: 3%;
+  width: 45%;
+  height: 45px;
+  animation: drift 16s linear infinite;
+}
+
+.fog-one { left: -40%; }
+.fog-two { left: -70%; bottom: 10%; animation-delay: -8s; }
+
+@keyframes drift {
+  from { transform: translateX(-10vw); }
+  to { transform: translateX(145vw); }
+}
+
+.pumpkins {
+  position: absolute;
+  bottom: 13%;
+  left: 4%;
+  z-index: 15;
+  display: flex;
+  gap: 1.3rem;
+  font-size: 2rem;
+}
+
+.pumpkin-glow {
+  animation: flicker 2.5s ease-in-out infinite;
+}
+
+.candy-rain span {
+  position: absolute;
+  top: -5%;
+  z-index: 20;
+  font-size: 1.2rem;
+  animation: candy-fall 7s linear infinite;
+}
+
+.candy-rain span:nth-child(1) { left: 12%; animation-delay: -1s; }
+.candy-rain span:nth-child(2) { left: 32%; animation-delay: -4s; }
+.candy-rain span:nth-child(3) { left: 55%; animation-delay: -2s; }
+.candy-rain span:nth-child(4) { left: 74%; animation-delay: -5s; }
+.candy-rain span:nth-child(5) { left: 90%; animation-delay: -3s; }
+
+@keyframes candy-fall {
+  to { transform: translateY(700px) rotate(360deg); }
+}
+
+/* =========================================================
+   SCENE 2 — GRAVEYARD
+   ========================================================= */
+
+.graveyard-scene {
+  background: linear-gradient(#070514 0%, #15103a 52%, #282144 100%);
+}
+
+.graveyard-sky {
+  position: absolute;
+  inset: 0 0 32%;
+}
+
+.big-moon {
+  position: absolute;
+  top: 15%;
+  right: 13%;
+  font-size: clamp(5rem, 13vw, 8rem);
+  filter: drop-shadow(0 0 25px var(--ghost-white));
+}
+
+.grave-cloud {
+  position: absolute;
+  left: -20%;
+  opacity: 0.4;
+  font-size: 3rem;
+  animation: cloud-drift 24s linear infinite;
+}
+
+.cloud-three { top: 24%; }
+.cloud-four { top: 48%; animation-delay: -12s; }
+
+.owl {
+  position: absolute;
+  left: -10%;
+  font-size: 1.8rem;
+  animation: owl-flight 13s linear infinite;
+}
+
+.owl-one { top: 30%; }
+.owl-two { top: 42%; animation-delay: -6s; }
+
+@keyframes owl-flight {
+  from { transform: translateX(0); }
+  to { transform: translateX(125vw) translateY(-35px); }
+}
+
+.graveyard-ground {
+  position: absolute;
+  inset: 45% 0 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, #39314e 0, #1b1729 65%, #0c0a12 100%);
+  border-top: 2px solid #51435d;
+}
+
+.tree {
+  position: absolute;
+  bottom: 22%;
+  font-size: 8rem;
+  filter: saturate(0.45);
+  opacity: 0.75;
+}
+
+.tree-left { left: -1rem; }
+.tree-right { right: -1rem; }
+
+.grave {
+  position: absolute;
+  bottom: 25%;
+  width: 90px;
+  height: 90px;
+  padding-top: 2rem;
+  border-radius: 50px 50px 0 0;
+  background: #77717d;
+  color: #29232e;
+  text-align: center;
+  font-weight: 900;
+  box-shadow: inset 0 0 0 4px #56505b;
+}
+
+.grave-a { left: 20%; transform: rotate(-4deg); }
+.grave-b { left: 48%; bottom: 31%; transform: rotate(3deg); }
+.grave-c { right: 20%; transform: rotate(-2deg); }
+
+.walking-couple {
+  position: absolute;
+  left: -12%;
+  bottom: 13%;
+  z-index: 10;
+  font-size: 2.3rem;
+  animation: couple-walk 14s linear infinite;
+}
+
+@keyframes couple-walk {
+  from { transform: translateX(0); }
+  to { transform: translateX(125vw); }
+}
+
+.black-cat {
+  position: absolute;
+  right: -10%;
+  bottom: 10%;
+  z-index: 12;
+  font-size: 2.1rem;
+  animation: cat-cross 10s linear infinite;
+}
+
+@keyframes cat-cross {
+  from { transform: translateX(0); }
+  to { transform: translateX(-125vw); }
+}
+
+.ghost-orb {
+  position: absolute;
+  z-index: 9;
+  font-size: 1.8rem;
+  animation: ghost-float 4s ease-in-out infinite;
+}
+
+.orb-one { left: 35%; bottom: 42%; }
+.orb-two { right: 32%; bottom: 48%; animation-delay: -2s; }
+
+@keyframes ghost-float {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50% { transform: translateY(-35px); opacity: 1; }
+}
+
+.cyclist {
+  position: absolute;
+  right: -15%;
+  bottom: 19%;
+  z-index: 11;
+  font-size: 2.5rem;
+  animation: cycle-by 16s linear infinite;
+}
+
+@keyframes cycle-by {
+  from { transform: translateX(0) scale(0.8); opacity: 0.4; }
+  20% { opacity: 0.9; }
+  100% { transform: translateX(-125vw) scale(0.55); opacity: 0.2; }
+}
+
+/* =========================================================
+   SCENE 3 — CURSED COVE
+   ========================================================= */
+
+.cove-scene {
+  background: linear-gradient(#57122b 0%, #f07b45 45%, #ffd37d 100%);
+}
+
+.sunset-sky {
+  position: absolute;
+  inset: 0 0 55%;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  right: 14%;
+  bottom: -20%;
+  font-size: clamp(6rem, 15vw, 10rem);
+  filter: drop-shadow(0 0 28px #ffd60a);
+}
+
+.cove-cloud {
+  position: absolute;
+  left: -20%;
+  font-size: 3rem;
+  opacity: 0.6;
+  animation: cloud-drift 21s linear infinite;
+}
+
+.cove-cloud-one { top: 24%; }
+.cove-cloud-two { top: 47%; animation-delay: -10s; }
+
+.ghost-ship {
+  position: absolute;
+  left: -20%;
+  bottom: 8%;
+  z-index: 4;
+  font-size: 3rem;
+  animation: ship-sail 18s linear infinite;
+}
+
+@keyframes ship-sail {
+  0% { transform: translateX(0) translateY(4px); }
+  50% { transform: translateX(60vw) translateY(-5px); }
+  100% { transform: translateX(125vw) translateY(4px); }
+}
+
+.flying-bats {
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  z-index: 5;
+  white-space: nowrap;
+  animation: bat-flight 11s linear infinite;
+}
+
+.ocean {
+  position: absolute;
+  inset: 42% 0 28%;
+  z-index: 2;
+  overflow: hidden;
+  background: linear-gradient(#1b4965, #073b4c);
+}
+
+.wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  color: #bde0fe;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  white-space: nowrap;
+  animation: waves 4s ease-in-out infinite;
+}
+
+.wave-one { top: 18%; }
+.wave-two { top: 48%; animation-delay: -1.2s; }
+.wave-three { top: 75%; animation-delay: -2.4s; }
+
+@keyframes waves {
+  0%, 100% { transform: translateX(-2%) scaleY(0.9); }
+  50% { transform: translateX(2%) scaleY(1.1); }
+}
+
+.beach {
+  position: absolute;
+  inset: 70% 0 0;
+  z-index: 6;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,.2) 0 2px, transparent 3px),
+    #d6ad65;
+}
+
+.bonfire {
+  position: absolute;
+  left: 27%;
+  bottom: 16%;
+  z-index: 10;
+  font-size: 3rem;
+  animation: fire-flicker 500ms ease-in-out infinite alternate;
+}
+
+@keyframes fire-flicker {
+  from { transform: scale(0.95) rotate(-2deg); filter: drop-shadow(0 0 5px #ff7518); }
+  to { transform: scale(1.08) rotate(2deg); filter: drop-shadow(0 0 20px #ffd60a); }
+}
+
+.pirates {
+  position: absolute;
+  left: 34%;
+  bottom: 16%;
+  z-index: 10;
+  font-size: 2.4rem;
+}
+
+.crab {
+  position: absolute;
+  right: -10%;
+  bottom: 10%;
+  z-index: 12;
+  font-size: 2rem;
+  animation: crab-scuttle 9s linear infinite;
+}
+
+@keyframes crab-scuttle {
+  from { transform: translateX(0); }
+  to { transform: translateX(-125vw); }
+}
+
+.lantern {
+  position: absolute;
+  bottom: 18%;
+  z-index: 9;
+  font-size: 2rem;
+  animation: lantern-rise 9s ease-in-out infinite;
+}
+
+.lantern-one { left: 60%; }
+.lantern-two { left: 73%; animation-delay: -3s; }
+.lantern-three { left: 85%; animation-delay: -6s; }
+
+@keyframes lantern-rise {
+  0% { transform: translateY(20px); opacity: 0.6; }
+  50% { transform: translateY(-90px); opacity: 1; }
+  100% { transform: translateY(-220px); opacity: 0; }
+}
+
+.sand-stars {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  color: #7b552d;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  padding: 0.5rem 0 3rem;
+  text-align: center;
+  color: #cfc4d8;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .site-header {
+    padding-top: 1.5rem;
+  }
+
+  .scene {
+    min-height: 620px;
+  }
+
+  .scene-heading {
+    width: calc(100% - 1.5rem);
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.8rem;
+  }
+
+  .scene-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .scene-heading p:last-child {
+    font-size: 0.9rem;
+  }
+
+  .building-left,
+  .building-right {
+    min-height: 105px;
+    font-size: 1.2rem;
+  }
+
+  .building-center {
+    min-height: 130px;
+    font-size: 0.8rem;
+  }
+
+  .story-group {
+    left: 35%;
+    font-size: 1.6rem;
+  }
+
+  .tree {
+    font-size: 5rem;
+  }
+
+  .grave {
+    width: 65px;
+    height: 70px;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .pirates {
+    left: 32%;
+    font-size: 1.8rem;
+  }
+
+  .bonfire {
+    left: 22%;
+  }
+}
+
+/* ---------- Reduced motion accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
